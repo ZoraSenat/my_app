@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Aisle resource:
+  # CREATE
+  get "/aisles/new", :controller => "aisles", :action => "new"
+  post "/create_aisle", :controller => "aisles", :action => "create"
+
+  # READ
+  get "/aisles", :controller => "aisles", :action => "index"
+  get "/aisles/:id", :controller => "aisles", :action => "show"
+
+  # UPDATE
+  get "/aisles/:id/edit", :controller => "aisles", :action => "edit"
+  post "/update_aisle/:id", :controller => "aisles", :action => "update"
+
+  # DELETE
+  get "/delete_aisle/:id", :controller => "aisles", :action => "destroy"
+  #------------------------------
+
   # Routes for the Ingredient resource:
   # CREATE
   get "/ingredients/new", :controller => "ingredients", :action => "new"
