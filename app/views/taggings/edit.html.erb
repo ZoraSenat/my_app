@@ -33,7 +33,7 @@
           R
         </label>
 
-        <input type="text" id="r_id" name="r_id" placeholder="R" class="form-control" value="<%= @tagging.r_id %>">
+        <%= select_tag(:r_id, options_from_collection_for_select(Recipe.all, :id, :description, @tagging.r_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
