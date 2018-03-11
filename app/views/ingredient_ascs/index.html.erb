@@ -17,7 +17,7 @@
       <% @ingredient_ascs.each do |ingredient_asc| %>
       <tr>
         <td><%= ingredient_asc.ingredient.name %></td>
-        <td><%= ingredient_asc.r_id %></td>
+        <td><%= ingredient_asc.recipe.description %></td>
         <td>
           <a href="/ingredient_ascs/<%= ingredient_asc.id %>" class="btn btn-primary">Show</a>
           <a href="/ingredient_ascs/<%= ingredient_asc.id %>/edit" class="btn btn-warning">Edit</a>
