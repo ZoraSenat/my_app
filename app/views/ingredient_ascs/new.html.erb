@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @ingredient_asc.errors.any? %>
+  <% @ingredient_asc.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Ingredient Asc</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_ingredient_asc" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for ingredient_id -->
+      <div class="form-group">
+        <label for="ingredient_id" class="control-label">
+          Ingredient
+        </label>
+
+        <input type="text" id="ingredient_id" name="ingredient_id" placeholder="Ingredient" class="form-control" value="<%= @ingredient_asc.ingredient_id %>">
+      </div>
+
+      <!-- Label and input for r_id -->
+      <div class="form-group">
+        <label for="r_id" class="control-label">
+          R
+        </label>
+
+        <input type="text" id="r_id" name="r_id" placeholder="R" class="form-control" value="<%= @ingredient_asc.r_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Ingredient Asc
+      </button>
+      or
+      <a href="/ingredient_ascs">Cancel</a>
+    </form>
+  </div>
+</div>
