@@ -20,6 +20,10 @@ class Recipe < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :fans,
+             :through => :likes,
+             :source => :user
+
   # Validations
 
   validates :user_id, :presence => true
