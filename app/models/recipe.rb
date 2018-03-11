@@ -1,6 +1,10 @@
 class Recipe < ApplicationRecord
   # Direct associations
 
+  has_many   :ingredient_ascs,
+             :foreign_key => "r_id",
+             :dependent => :destroy
+
   has_many   :taggings,
              :foreign_key => "r_id",
              :dependent => :destroy
