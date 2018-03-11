@@ -6,6 +6,7 @@ class IngredientsController < ApplicationController
   end
 
   def show
+    @ingredient_asc = IngredientAsc.new
     @ingredient = Ingredient.find(params[:id])
 
     render("ingredients/show.html.erb")

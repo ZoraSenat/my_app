@@ -16,6 +16,10 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @ingredient_asc = IngredientAsc.new
+    @tagging = Tagging.new
+    @comment = Comment.new
+    @like = Like.new
     @recipe = Recipe.find(params[:id])
 
     render("recipes/show.html.erb")

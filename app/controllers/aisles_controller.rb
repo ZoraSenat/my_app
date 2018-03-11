@@ -6,6 +6,7 @@ class AislesController < ApplicationController
   end
 
   def show
+    @ingredient = Ingredient.new
     @aisle = Aisle.find(params[:id])
 
     render("aisles/show.html.erb")

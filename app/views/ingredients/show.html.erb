@@ -57,6 +57,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_ingredient_asc" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for ingredient_id -->
+      <input type="hidden" name="ingredient_id" value="<%= @ingredient.id %>">
+
+      <!-- Label and input for r_id -->
+      <div class="form-group">
+        <label for="r_id" class="control-label">
+          R
+        </label>
+
+        <%= select_tag(:r_id, options_from_collection_for_select(Recipe.all, :id, :description), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Ingredient Asc
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

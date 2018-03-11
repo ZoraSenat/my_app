@@ -48,6 +48,37 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_ingredient" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for aisle_id -->
+      <input type="hidden" name="aisle_id" value="<%= @aisle.id %>">
+
+      <!-- Label and input for list -->
+      <div class="checkbox">
+        <label for="list">
+          <input type="checkbox" id="list" name="list" value="1" <%= "checked" if @ingredient.list %>>
+          List
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Ingredient
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
