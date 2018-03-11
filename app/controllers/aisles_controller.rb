@@ -1,6 +1,7 @@
 class AislesController < ApplicationController
   def index
-    @aisles = Aisle.page(params[:page]).per(10)
+    @q = Aisle.ransack(params[:q])
+    @aisles = @q.result(:distinct => true).includes(:ingredients).page(params[:page]).per(10)
 
     render("aisles/index.html.erb")
   end

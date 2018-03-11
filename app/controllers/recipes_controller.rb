@@ -10,7 +10,8 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.page(params[:page]).per(10)
+    @q = Recipe.ransack(params[:q])
+    @recipes = @q.result(:distinct => true).includes(:user, :likes, :comments, :taggings, :ingredient_ascs, :fans).page(params[:page]).per(10)
 
     render("recipes/index.html.erb")
   end

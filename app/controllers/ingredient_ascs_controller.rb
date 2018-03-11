@@ -1,6 +1,7 @@
 class IngredientAscsController < ApplicationController
   def index
-    @ingredient_ascs = IngredientAsc.page(params[:page]).per(10)
+    @q = IngredientAsc.ransack(params[:q])
+    @ingredient_ascs = @q.result(:distinct => true).includes(:recipe, :ingredient).page(params[:page]).per(10)
 
     render("ingredient_ascs/index.html.erb")
   end
