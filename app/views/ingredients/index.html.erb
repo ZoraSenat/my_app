@@ -18,7 +18,7 @@
       <% @ingredients.each do |ingredient| %>
       <tr>
         <td><%= ingredient.name %></td>
-        <td><%= ingredient.aisle_id %></td>
+        <td><%= ingredient.aisle.created_at %></td>
         <td><%= ingredient.list %></td>
         <td>
           <a href="/ingredients/<%= ingredient.id %>" class="btn btn-primary">Show</a>
