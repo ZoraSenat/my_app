@@ -33,7 +33,7 @@
           Aisle
         </label>
 
-        <input type="text" id="aisle_id" name="aisle_id" placeholder="Aisle" class="form-control" value="<%= @ingredient.aisle_id %>">
+        <%= select_tag(:aisle_id, options_from_collection_for_select(Aisle.all, :id, :created_at, @ingredient.aisle_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for list -->
