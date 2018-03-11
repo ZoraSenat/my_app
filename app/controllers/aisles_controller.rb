@@ -1,6 +1,6 @@
 class AislesController < ApplicationController
   def index
-    @aisles = Aisle.all
+    @aisles = Aisle.page(params[:page]).per(10)
 
     render("aisles/index.html.erb")
   end
