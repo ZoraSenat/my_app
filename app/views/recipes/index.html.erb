@@ -20,7 +20,7 @@
       <% @recipes.each do |recipe| %>
       <tr>
         <td><%= recipe.description %></td>
-        <td><%= recipe.user_id %></td>
+        <td><%= recipe.user.username %></td>
         <td><%= recipe.link %></td>
         <td><%= recipe.title %></td>
         <td><%= recipe.image %></td>
