@@ -16,8 +16,20 @@
 
       <% @taggings.each do |tagging| %>
       <tr>
-        <td><%= tagging.tag.tag %></td>
-        <td><%= tagging.recipe.description %></td>
+        <td>
+          <% if tagging.tag.present? %>
+            <a href="/tags/<%= tagging.tag.id %>">
+              <%= tagging.tag.tag %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if tagging.recipe.present? %>
+            <a href="/recipes/<%= tagging.recipe.id %>">
+              <%= tagging.recipe.description %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/taggings/<%= tagging.id %>" class="btn btn-primary">Show</a>
           <a href="/taggings/<%= tagging.id %>/edit" class="btn btn-warning">Edit</a>

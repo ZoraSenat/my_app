@@ -20,7 +20,13 @@
       <% @recipes.each do |recipe| %>
       <tr>
         <td><%= recipe.description %></td>
-        <td><%= recipe.user.username %></td>
+        <td>
+          <% if recipe.user.present? %>
+            <a href="/users/<%= recipe.user.id %>">
+              <%= recipe.user.username %>
+            </a>
+          <% end %>
+        </td>
         <td><%= recipe.link %></td>
         <td><%= recipe.title %></td>
         <td><%= recipe.image %></td>
