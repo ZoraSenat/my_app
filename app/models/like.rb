@@ -1,6 +1,11 @@
 class Like < ApplicationRecord
   # Direct associations
 
+  belongs_to :photo,
+             :class_name => "Recipe",
+             :foreign_key => "recipe_id",
+             :counter_cache => true
+
   belongs_to :user
 
   # Indirect associations
